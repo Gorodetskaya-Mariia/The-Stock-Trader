@@ -13,14 +13,15 @@
           class="form-control"
           placeholder="Quantity"
           v-model.number="quantity"
+          :class="{ danger: insufficientStocks }"
         >
       </div>
       <div class="pull-right">
         <button
           class="btn btn-primary"
           @click="sellStock"
-          :disabled="quantity<=0 || !Number.isInteger(quantity)"
-          >Sell</button>
+          :disabled="insufficientStocks || quantity<=0 || !Number.isInteger(quantity)"
+          >{{ insufficientStocks ? 'Not enough Stocks' : 'Sell'}}</button>
       </div>
     </div>
   </div>
@@ -36,6 +37,11 @@
       }
     },
     props: ['stock'],
+    computed: {
+      insufficientStocks() {
+        return this.quantity > this.stock.quantity;
+      }
+    },
     methods: {
       ...mapActions({
         placeSellOrder: 'sellStock'
@@ -53,7 +59,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .card {
     width: 48%;
     padding: 15px;
@@ -64,5 +70,9 @@
 
   .card-header {
     margin-bottom: 15px;
+  }
+
+  .danger {
+    border: 1px solid red;
   }
 </style>
