@@ -37,16 +37,17 @@
     },
     props: ['stock'],
     methods: {
-      ...mapActions([
-        'sellStock'
-      ]),
+      ...mapActions({
+        placeSellOrder: 'sellStock'
+      }),
       sellStock() {
         const order = {
           stockId: this.stock.id,
           stockPrice: this.stock.price,
           quantity: this.quantity
         };
-        this.sellStock();
+        this.placeSellOrder(order);
+        this.quantity = 0;
       }
     }
   }
@@ -57,7 +58,6 @@
     width: 48%;
     padding: 15px;
     margin-bottom: 40px;
-    margin-right: 30px;
     border: 1px solid #337ab7;
     border-radius: 5px;
   }
