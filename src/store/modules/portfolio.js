@@ -10,10 +10,10 @@ const mutations = {
       record.quantity += quantity;
     } else {
       state.stocks.push({
-        id: stockId,
-        name: stockName,
-        price: stockPrice,
-        quantity: quantity
+				id: stockId,
+				name: stockName,
+				price: stockPrice,
+				quantity: quantity
       });
     }
     state.funds -= stockPrice * quantity;
