@@ -12,7 +12,7 @@
     computed: {
       ...mapGetters({
         stocks: 'stockPortfolio'
-      })
+      }),
     },
     components: {
       appStock: Stock

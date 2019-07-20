@@ -31,12 +31,12 @@
   import { mapActions } from 'vuex';
 
   export default {
+    props: ['stock'],
     data() {
       return {
         quantity: 0
       }
     },
-    props: ['stock'],
     computed: {
       insufficientStocks() {
         return this.quantity > this.stock.quantity;

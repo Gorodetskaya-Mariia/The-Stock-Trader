@@ -29,12 +29,12 @@
 
 <script>
   export default {
+    props: ['stock'],
     data() {
       return {
         quantity: 0
       }
     },
-    props: ['stock'],
     computed: {
       funds() {
         return this.$store.getters.funds;
@@ -47,7 +47,7 @@
       buyStock() {
         const order = {
           stockId: this.stock.id,
-          stockName: this.stock.name,
+          // stockName: this.stock.name,
           stockPrice: this.stock.price,
           quantity: this.quantity
         };
