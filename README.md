@@ -2,6 +2,8 @@
 
 > A Vue.js project
 
+The application consists of three pages. You can buy as many stocks as you can afford on the page "Stocks". Also, you may Save and Load your data. Click on "End Day" to recieve updated prices of every stock. You may sell your stocks and get a profit or a loss. You can find a similar information on the main page.
+
 ## Build Setup
 
 ``` bash
