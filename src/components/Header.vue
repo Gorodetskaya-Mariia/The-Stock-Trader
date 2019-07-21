@@ -47,8 +47,7 @@
   export default {
     data() {
       return {
-        isDropdownOpen: false,
-        isActive: false
+        isDropdownOpen: false
       }
     },
     computed: {

@@ -7,6 +7,9 @@ const state = {
 const mutations = {
   'SET_STOCKS'(state, stocks) {
     state.stocks = stocks;
+    state.stocks.forEach(stock => {
+      stock.price = Math.round(Math.random()* (400 - 150) + 150);
+    });
   },
   'RND_STOCKS' (state) {
     console.log(state)
