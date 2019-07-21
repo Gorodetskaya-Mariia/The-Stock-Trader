@@ -1,12 +1,12 @@
 <template>
   <div class="card">
-    <div class="card-header text-primary">
+    <div class="card-header">
       <h3 class="card-title">
         {{ stock.name }}
-        <small>(Price: {{ stock.price }} | Quantity: {{ stock.quantity }})</small>
       </h3>
+      <p>(Price: {{ stock.price }} | Quantity: {{ stock.quantity }})</p>
     </div>
-    <div class="card-body text-primary">
+    <div class="card-body">
       <div class="pull-left">
         <input
           type="number"
@@ -18,7 +18,7 @@
       </div>
       <div class="pull-right">
         <button
-          class="btn btn-primary"
+          class="btn"
           @click="sellStock"
           :disabled="insufficientStocks || quantity<=0 || !Number.isInteger(quantity)"
           >{{ insufficientStocks ? 'Not enough Stocks' : 'Sell'}}</button>
@@ -58,21 +58,3 @@
     }
   }
 </script>
-
-<style scoped>
-  .card {
-    width: 48%;
-    padding: 15px;
-    margin-bottom: 40px;
-    border: 1px solid #337ab7;
-    border-radius: 5px;
-  }
-
-  .card-header {
-    margin-bottom: 15px;
-  }
-
-  .danger {
-    border: 1px solid red;
-  }
-</style>

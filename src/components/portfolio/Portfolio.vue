@@ -1,5 +1,5 @@
 <template>
-  <div class="container-stocks">
+  <div class="container-stocks container-stocks--portfolio">
     <app-stock v-for="(stock, index) in stocks" :key="index" :stock="stock"></app-stock>
   </div>
 </template>
@@ -19,11 +19,3 @@
     }
   }
 </script>
-
-<style>
-  .container-stocks {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-</style>

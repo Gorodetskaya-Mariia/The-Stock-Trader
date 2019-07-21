@@ -1,13 +1,9 @@
 <template>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <router-link to="/" class="navbar-brand" active-class="active" exact>
-            <a>Stock Trader</a>
+  <nav class="navbar">
+    <ul class="nav nav--left">
+         <router-link to="/" tag="li" class="navbar-brand" active-class="active">
+            <a><strong>Stock Trader</strong></a>
         </router-link>
-      </div>
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
           <router-link to="/portfolio" tag="li" active-class="active">
             <a>Portfolio</a>
           </router-link>
@@ -15,10 +11,11 @@
             <a>Stocks</a>
           </router-link>
         </ul>
-        <strong class="nav-text navbar-right">Funds: {{ funds | currency }}</strong>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" @click="endDay">End Day</a></li>
-          <li class="dropdown"
+        <ul class="nav nav-right">
+           <li>
+                <a href="#" @click="endDay">End Day</a>
+          </li>
+            <li class="dropdown"
               :class="{open: isDropdownOpen}"
               @click="isDropdownOpen = !isDropdownOpen">
             <a href="#"
@@ -29,13 +26,18 @@
               aria-expanded="false">Save & Load <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="#" @click="saveData">Save Data</a></li>
-              <li><a href="#" @click="loadData">Load Data</a></li>
+              <li active-class="active">
+                <a href="#" @click="saveData">Save Data</a>
+              </li>
+              <li active-class="active">
+                <a href="#" @click="loadData">Load Data</a>
+              </li>
             </ul>
           </li>
+          <li>
+            <strong>Funds: {{ funds | currency }}</strong>
+          </li>
         </ul>
-      </div>
-    </div>
   </nav>
 </template>
 
@@ -45,7 +47,8 @@
   export default {
     data() {
       return {
-        isDropdownOpen: false
+        isDropdownOpen: false,
+        isActive: false
       }
     },
     computed: {
